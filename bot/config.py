@@ -1,0 +1,52 @@
+"""
+Configuration for the arbitrage bot and RL system
+"""
+
+import os
+
+# Blockchain Configuration
+RPC_URL = os.getenv("RPC_URL", "https://eth.llamarpc.com") # Public default
+CHAIN_ID = 1  
+
+# Contract Addresses
+ARB_EXECUTOR_ADDRESS = os.getenv("ARB_EXECUTOR_ADDRESS", "0x0000000000000000000000000000000000000000")
+AAVE_POOL_ADDRESS = "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2"  
+
+# DEX Router Addresses
+UNISWAP_V2_ROUTER = "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D"
+SUSHISWAP_ROUTER = "0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F"
+
+# Token Addresses
+WETH = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+USDC = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+
+# Pair Addresses (Mainnet)
+UNISWAP_V2_USDC_WETH_PAIR = "0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc"
+SUSHISWAP_USDC_WETH_PAIR = "0x397FFBe6D69f1201984aBE9000a6c0716723ad33"
+
+# Safety Limits
+MAX_TRADE_SIZE = 100_000  
+DAILY_LOSS_LIMIT = 10_000  
+MIN_PROFIT_THRESHOLD = 0.0001 
+
+# Gas Configuration
+MAX_GAS_PRICE = 100  
+MAX_PRIORITY_FEE = 5  
+
+# Monitoring Configuration
+BLOCK_TIME = 12  
+MEMPOOL_ENABLED = False  
+FLASHBOTS_RPC = "https://relay.flashbots.net"
+
+# RL Configuration
+RL_STATE_DIM = 9  
+RL_ACTION_DIM = 5  
+RL_TRAINING_STEPS = 1_000_000
+RL_BATCH_SIZE = 64
+RL_LEARNING_RATE = 3e-4
+RL_GAMMA = 0.99  
+
+# Simulation Configuration
+SIMULATION_START_BLOCK = None  
+SIMULATION_DURATION = 1000  
+HISTORICAL_DATA_PATH = "./data/historical"
